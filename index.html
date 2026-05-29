@@ -1,33 +1,294 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Lokhonia Engineering</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lokhonia Engineering</title>
+
+  <style>
+    :root {
+      --blue: #255083;
+      --silver: #c7c9cc;
+      --dark: #111827;
+      --light: #f7f9fb;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--blue);
+      color: var(--white);
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 24px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 90px 8%;
+      background: linear-gradient(to right, var(--blue), #1b3b61);
+      color: var(--white);
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--silver);
+      color: var(--dark);
+      padding: 14px 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    section h2 {
+      font-size: 34px;
+      color: var(--blue);
+      margin-bottom: 25px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .placeholder-img {
+      background: var(--silver);
+      height: 300px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .services-grid,
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      border: 1px solid var(--silver);
+      padding: 26px;
+      border-radius: 6px;
+      background: var(--white);
+    }
+
+    .card h3 {
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .projects {
+      background: var(--light);
+    }
+
+    .project-image {
+      background: var(--silver);
+      height: 180px;
+      border-radius: 4px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-weight: bold;
+    }
+
+    .contact {
+      background: var(--blue);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .contact h2 {
+      color: var(--white);
+    }
+
+    .contact a {
+      color: var(--white);
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    footer {
+      background: #0f172a;
+      color: var(--silver);
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 15px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+
+      .hero h2 {
+        font-size: 36px;
+      }
+
+      .about,
+      .services-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>Lokhonia Engineering</h1>
+  <header>
+    <h1>LOKHONIA ENGINEERING</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Get in Touch</a>
+    </nav>
+  </header>
 
-<p>
-Process Modeling and Techno-Economic Analysis for Early-Stage Industrial Startups
-</p>
+  <section class="hero">
+    <h2>Process modeling and scale-up support for early-stage industrial startups.</h2>
+    <p>
+      Lokhonia Engineering helps startups visualize, model, and evaluate technologies at pilot and commercial scale.
+    </p>
+    <a class="button" href="#contact">Get in Touch</a>
+  </section>
 
-<h2>Services</h2>
+  <section id="about">
+    <div class="about">
+      <div>
+        <h2>About</h2>
+        <p>
+          Lokhonia Engineering provides mechanical and chemical engineering support for startups developing physical technologies.
+          The focus is on helping early-stage teams understand how their processes may look, perform, and scale beyond the lab.
+        </p>
+      </div>
 
-<ul>
-<li>Process Simulation (Aspen)</li>
-<li>Techno-Economic Analysis</li>
-<li>Cost Estimation</li>
-<li>PFD & P&ID Development</li>
-<li>SolidWorks & AutoCAD</li>
-<li>Carbon Calculations</li>
-</ul>
+      <div class="placeholder-img">
+        Placeholder Photo<br>
+        Add founder, plant, CAD, or engineering image here
+      </div>
+    </div>
+  </section>
 
-<h2>Contact</h2>
+  <section id="services">
+    <h2>Services</h2>
 
-<p>
-matthew@lokhoniaengineering.com
-</p>
+    <div class="services-grid">
+      <div class="card">
+        <h3>Plant Visualization</h3>
+        <p>Commercial-scale CAD concepts, equipment layouts, and process visualization for investor and technical discussions.</p>
+      </div>
+
+      <div class="card">
+        <h3>Process Engineering</h3>
+        <p>PFDs, P&IDs, equipment sizing, and early-stage process development support.</p>
+      </div>
+
+      <div class="card">
+        <h3>Techno-Economic Analysis</h3>
+        <p>Preliminary cost estimation, Aspen simulation, CAPEX/OPEX modeling, and scale-up analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+
+    <div class="projects-grid">
+      <div class="card">
+        <div class="project-image">Project Image</div>
+        <h3>Commercial Plant Concept</h3>
+        <p>Placeholder for a sample CAD visualization or plant layout project.</p>
+      </div>
+
+      <div class="card">
+        <div class="project-image">Project Image</div>
+        <h3>Process Simulation Study</h3>
+        <p>Placeholder for an Aspen model, mass balance, or process development case study.</p>
+      </div>
+
+      <div class="card">
+        <div class="project-image">Project Image</div>
+        <h3>Cost Estimation Package</h3>
+        <p>Placeholder for a techno-economic analysis or scale-up cost estimate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+    <p>
+      Interested in process modeling, CAD visualization, or scale-up support?
+    </p>
+    <br>
+    <p>
+      <a href="mailto:matthew@lokhoniaengineering.com">matthew@lokhoniaengineering.com</a>
+    </p>
+  </section>
+
+  <footer>
+    © 2026 Lokhonia Engineering. All rights reserved.
+  </footer>
 
 </body>
 </html>
