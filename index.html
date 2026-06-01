@@ -245,7 +245,51 @@
       font-weight: bold;
       font-size: 20px;
     }
-
+    .contact-form {
+      max-width: 750px;
+      margin: 40px auto 0;
+      background: white;
+      padding: 35px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-family: Verdana, Geneva, sans-serif;
+      font-size: 15px;
+    }
+    
+    .contact-form textarea {
+      resize: vertical;
+    }
+    
+    .contact-form button {
+      width: 100%;
+      background: #255083;
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .contact-form button:hover {
+      background: #1b3b61;
+    }
     footer {
       background: #0f172a;
       color: var(--silver);
@@ -463,108 +507,26 @@
       </a>
     </p>
     <br><br>
-    
-    <form
-      action="https://formsubmit.co/info@lokhoniaengineering.com"
-      method="POST"
-      class="contact-form"
-    >
-    
-      <input type="hidden" name="_subject" value="New Website Inquiry">
-      <input type="hidden" name="_captcha" value="false">
-    
-      <div class="form-row">
-        <input
-          type="text"
-          name="First Name"
-          placeholder="First Name"
-          required
-        >
-    
-        <input
-          type="text"
-          name="Last Name"
-          placeholder="Last Name"
-          required
-        >
-      </div>
-    
-      <input
-        type="text"
-        name="Company"
-        placeholder="Company (Optional)"
-      >
-    
-      <input
-        type="email"
-        name="Email"
-        placeholder="Email Address"
-        required
-      >
-    
-      <textarea
-        name="Project Description"
-        placeholder="Tell us about your project..."
-        rows="6"
-        required
-      ></textarea>
-    
-      <button type="submit">
-        Submit Inquiry
-      </button>
-    
-    </form>
-    .contact-form {
-      max-width: 800px;
-      margin: 40px auto 0;
-    }
-    
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 18px;
-    
-      border: none;
-      border-radius: 6px;
-    
-      font-size: 15px;
-      font-family: Verdana, Geneva, sans-serif;
-    }
-    
-    .contact-form textarea {
-      resize: vertical;
-    }
-    
-    .contact-form button {
-      background: white;
-      color: #255083;
-    
-      border: none;
-      border-radius: 6px;
-    
-      padding: 16px 32px;
-    
-      font-size: 16px;
-      font-weight: bold;
-    
-      cursor: pointer;
-    }
-    
-    .contact-form button:hover {
-      background: #f2f2f2;
-    }
 
-  .form-row {
-  grid-template-columns: 1fr;
-  }
-  </section>
+    <form action="https://formsubmit.co/info@lokhoniaengineering.com" method="POST" class="contact-form">
+    
+    <input type="hidden" name="_subject" value="New Website Inquiry">
+    <input type="hidden" name="_captcha" value="false">
+    
+    <div class="form-row">
+      <input type="text" name="First Name" placeholder="First Name" required>
+      <input type="text" name="Last Name" placeholder="Last Name" required>
+    </div>
+    
+    <input type="text" name="Company" placeholder="Company (Optional)">
+    
+    <input type="email" name="Email" placeholder="Email Address" required>
+    
+    <textarea name="Project Description" placeholder="Tell us about your project..." rows="6" required></textarea>
+    
+    <button type="submit">Submit Inquiry</button>
+    
+    </form>   
 
   <footer>
     © 2026 Lokhonia Engineering. All rights reserved.
