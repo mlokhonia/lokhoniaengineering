@@ -462,6 +462,108 @@
         info@lokhoniaengineering.com
       </a>
     </p>
+    <br><br>
+    
+    <form
+      action="https://formsubmit.co/info@lokhoniaengineering.com"
+      method="POST"
+      class="contact-form"
+    >
+    
+      <input type="hidden" name="_subject" value="New Website Inquiry">
+      <input type="hidden" name="_captcha" value="false">
+    
+      <div class="form-row">
+        <input
+          type="text"
+          name="First Name"
+          placeholder="First Name"
+          required
+        >
+    
+        <input
+          type="text"
+          name="Last Name"
+          placeholder="Last Name"
+          required
+        >
+      </div>
+    
+      <input
+        type="text"
+        name="Company"
+        placeholder="Company (Optional)"
+      >
+    
+      <input
+        type="email"
+        name="Email"
+        placeholder="Email Address"
+        required
+      >
+    
+      <textarea
+        name="Project Description"
+        placeholder="Tell us about your project..."
+        rows="6"
+        required
+      ></textarea>
+    
+      <button type="submit">
+        Submit Inquiry
+      </button>
+    
+    </form>
+    .contact-form {
+      max-width: 800px;
+      margin: 40px auto 0;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 18px;
+    
+      border: none;
+      border-radius: 6px;
+    
+      font-size: 15px;
+      font-family: Verdana, Geneva, sans-serif;
+    }
+    
+    .contact-form textarea {
+      resize: vertical;
+    }
+    
+    .contact-form button {
+      background: white;
+      color: #255083;
+    
+      border: none;
+      border-radius: 6px;
+    
+      padding: 16px 32px;
+    
+      font-size: 16px;
+      font-weight: bold;
+    
+      cursor: pointer;
+    }
+    
+    .contact-form button:hover {
+      background: #f2f2f2;
+    }
+
+  .form-row {
+  grid-template-columns: 1fr;
+  }
   </section>
 
   <footer>
