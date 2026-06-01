@@ -261,9 +261,10 @@
       }
 
       .about,
-      .services-grid,
-      .projects-grid {
-        grid-template-columns: 1fr;
+      .services-grid {
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:24px;
       }
     }
   </style>
@@ -288,7 +289,7 @@
 
   <section class="hero">
     <div class="hero-image">
-      <img src="images/hero-image.jpg" alt="Industrial process design" />
+      <img src="stock photo.jpg" alt="Industrial process design" />
     </div>
 
     <div class="hero-content">
@@ -326,30 +327,40 @@
   <section id="services">
     <h2>Services</h2>
 
-    <div class="services-grid">
       <div class="card">
-        <h3>Plant Visualization</h3>
-        <p>
-          Commercial-scale CAD concepts, equipment layouts, and process visualization
-          for investor and technical discussions.
-        </p>
-      </div>
+    <h3>Plant Visualization</h3>
+    <p>
+      Commercial-scale CAD concepts, equipment layouts, and process
+      visualization for investor and technical discussions.
+    </p>
+  </div>
 
-      <div class="card">
-        <h3>Process Engineering</h3>
-        <p>
-          PFDs, P&IDs, equipment sizing, and early-stage process development support.
-        </p>
-      </div>
+  <div class="card">
+    <h3>Process Engineering</h3>
+    <p>
+      PFDs, P&IDs, equipment sizing, and early-stage process
+      development support.
+    </p>
+  </div>
 
-      <div class="card">
-        <h3>Techno-Economic Analysis</h3>
-        <p>
-          Preliminary cost estimation, Aspen simulation, CAPEX/OPEX modeling,
-          and scale-up analysis.
-        </p>
-      </div>
-    </div>
+  <div class="card">
+    <h3>Techno-Economic Analysis</h3>
+    <p>
+      Preliminary cost estimation, Aspen simulation,
+      CAPEX/OPEX modeling, and scale-up analysis.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Carbon Studies</h3>
+    <p>
+      Carbon intensity analysis, emissions inventories,
+      life-cycle assessment support, and evaluation of
+      decarbonization opportunities.
+    </p>
+  </div>
+
+</div>
   </section>
 
   <section id="projects" class="projects">
@@ -366,7 +377,7 @@
 
       <div class="card">
         <div class="project-image">
-          <img src="images/project-2.jpg" alt="Process simulation study" />
+          <img src="ASPEN model.png" alt="Aspen Process Simulation">
         </div>
         <h3>Process Simulation Study</h3>
         <p>Placeholder for an Aspen model, mass balance, or process development case study.</p>
@@ -374,7 +385,7 @@
 
       <div class="card">
         <div class="project-image">
-          <img src="images/project-3.jpg" alt="Cost estimation package" />
+          <img src="Cost Estimation" alt="Cost Estimation Study">
         </div>
         <h3>Cost Estimation Package</h3>
         <p>Placeholder for a techno-economic analysis or scale-up cost estimate.</p>
