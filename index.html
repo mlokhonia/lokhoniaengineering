@@ -1,259 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lokhonia Engineering</title>
 
-<title>Lokhonia Engineering</title>
+  <style>
+    :root {
+      --blue: #255083;
+      --blue-dark: #1b3b61;
+      --silver: #c7c9cc;
+      --dark: #111827;
+      --light: #f7f9fb;
+      --white: #ffffff;
+    }
 
-<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-:root {
-  --blue: #255083;
-  --blue-dark: #1b3b61;
-  --silver: #c7c9cc;
-  --white: #ffffff;
-}
+    body {
+      font-family: Verdana, Geneva, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+    header {
+      background: var(--blue);
+      color: var(--white);
+      padding: 14px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-body{
-  font-family: Verdana, Geneva, sans-serif;
-  background:white;
-  line-height:1.6;
-}
+    .logo {
+      height: 95px;
+      width: auto;
+      display: block;
+    }
 
-/* =========================
-   HEADER
-========================= */
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: bold;
+      font-size: 15px;
+    }
 
-header{
-  background:var(--blue);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 8%;
-}
+    nav a:hover {
+      opacity: 0.8;
+    }
 
-.logo-container{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 650px;
+      padding: 100px 8%;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      background: linear-gradient(
+        rgba(37, 80, 131, 0.92),
+        rgba(27, 59, 97, 0.92)
+      );
+    }
 
-.logo{
-  height:60px;
-  width:auto;
-}
+    .hero-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      opacity: 0.3;
+      z-index: 1;
+    }
 
-.logo-text{
-  color:white;
-  font-size:30px;
-  font-weight:bold;
-  letter-spacing:1px;
-}
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:30px;
-  font-weight:bold;
-  font-size:15px;
-  transition:0.3s;
-}
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to left,
+        rgba(37, 80, 131, 0),
+        rgba(37, 80, 131, 0.95)
+      );
+    }
 
-nav a:hover{
-  opacity:0.8;
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
 
-/* =========================
-   HERO SECTION
-========================= */
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.12;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.45);
+    }
 
-.hero{
-  position:relative;
-  overflow:hidden;
+    .hero p {
+      font-size: 23px;
+      max-width: 700px;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.35);
+    }
 
-  min-height:650px;
+    .button {
+      display: inline-block;
+      background: var(--white);
+      color: var(--blue);
+      padding: 16px 32px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+    }
 
-  background:linear-gradient(
-      rgba(37,80,131,0.92),
-      rgba(27,59,97,0.92)
-    );
+    .button:hover {
+      transform: translateY(-2px);
+    }
 
-  display:flex;
-  align-items:center;
+    section {
+      padding: 70px 8%;
+    }
 
-  padding:100px 8%;
-}
+    section h2 {
+      font-size: 34px;
+      color: var(--blue);
+      margin-bottom: 25px;
+    }
 
-/* background photo */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
 
-.hero-image{
-  position:absolute;
-  top:0;
-  right:0;
+    .about-image {
+      background: var(--silver);
+      height: 300px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
 
-  width:50%;
-  height:100%;
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  opacity:0.18;
+    .services-grid,
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
 
-  z-index:1;
-}
+    .card {
+      border: 1px solid var(--silver);
+      padding: 26px;
+      border-radius: 8px;
+      background: var(--white);
+    }
 
-.hero-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+    .card h3 {
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
 
-/* hero text */
+    .projects {
+      background: var(--light);
+    }
 
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:800px;
-}
+    .project-image {
+      background: var(--silver);
+      height: 180px;
+      border-radius: 6px;
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
 
-.hero h1{
-  font-size:64px;
-  line-height:1.1;
-  color:white;
-  margin-bottom:30px;
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  text-shadow:
-    2px 2px 8px rgba(0,0,0,0.4);
-}
+    .contact {
+      background: var(--blue);
+      color: var(--white);
+      text-align: center;
+    }
 
-.hero p{
-  font-size:24px;
-  line-height:1.6;
-  color:white;
+    .contact h2 {
+      color: var(--white);
+    }
 
-  max-width:650px;
+    .contact a {
+      color: var(--white);
+      font-weight: bold;
+      font-size: 20px;
+    }
 
-  margin-bottom:40px;
-}
+    footer {
+      background: #0f172a;
+      color: var(--silver);
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
 
-.button{
-  display:inline-block;
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-  background:white;
-  color:var(--blue);
+      nav {
+        margin-top: 18px;
+      }
 
-  text-decoration:none;
-  font-weight:bold;
+      nav a {
+        margin-left: 0;
+        margin-right: 18px;
+        display: inline-block;
+        margin-bottom: 8px;
+      }
 
-  padding:16px 32px;
+      .logo {
+        height: 80px;
+      }
 
-  border-radius:6px;
+      .hero {
+        min-height: auto;
+        padding: 80px 8%;
+      }
 
-  transition:0.3s;
-}
+      .hero-image {
+        width: 100%;
+        opacity: 0.16;
+      }
 
-.button:hover{
-  transform:translateY(-2px);
-}
+      .hero h1 {
+        font-size: 40px;
+      }
 
-/* =========================
-   MOBILE
-========================= */
+      .hero p {
+        font-size: 19px;
+      }
 
-@media(max-width:900px){
-
-  header{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  nav{
-    margin-top:15px;
-  }
-
-  nav a{
-    margin-left:0;
-    margin-right:20px;
-  }
-
-  .hero{
-    min-height:auto;
-    padding:80px 8%;
-  }
-
-  .hero h1{
-    font-size:42px;
-  }
-
-  .hero p{
-    font-size:20px;
-  }
-
-  .hero-image{
-    width:100%;
-    opacity:0.12;
-  }
-}
-
-</style>
+      .about,
+      .services-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <header>
+    <img
+      src="images/lokhonia-logo.png"
+      alt="Lokhonia Engineering Logo"
+      class="logo"
+    />
 
-  <div class="logo-container">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Get in Touch</a>
+    </nav>
+  </header>
 
-    <!-- Your logo file -->
-    <img src="images/lokhonia-logo.png"
-         alt="Lokhonia Engineering Logo"
-         class="logo">
-
-    <div class="logo-text">
-      LOKHONIA ENGINEERING
+  <section class="hero">
+    <div class="hero-image">
+      <img src="images/hero-image.jpg" alt="Industrial process design" />
     </div>
 
-  </div>
+    <div class="hero-content">
+      <h1>
+        Helping industrial technology startups scale from lab to commercial deployment.
+      </h1>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Get in Touch</a>
-  </nav>
+      <p>
+        Process engineering, techno-economic analysis, process simulation,
+        and plant visualization for emerging industrial technologies.
+      </p>
 
-</header>
+      <a class="button" href="#contact">Get in Touch</a>
+    </div>
+  </section>
 
-<section class="hero">
+  <section id="about">
+    <div class="about">
+      <div>
+        <h2>About</h2>
+        <p>
+          Lokhonia Engineering provides mechanical and chemical engineering support
+          for startups developing physical technologies. The focus is on helping
+          early-stage teams understand how their processes may look, perform, and
+          scale beyond the lab.
+        </p>
+      </div>
 
-  <div class="hero-image">
-    <img src="images/hero-image.jpg"
-         alt="Industrial Process Design">
-  </div>
+      <div class="about-image">
+        <img src="images/about-image.jpg" alt="Engineering project visual" />
+      </div>
+    </div>
+  </section>
 
-  <div class="hero-content">
+  <section id="services">
+    <h2>Services</h2>
 
-    <h1>
-      Process modeling and scale-up support for early-stage industrial startups.
-    </h1>
+    <div class="services-grid">
+      <div class="card">
+        <h3>Plant Visualization</h3>
+        <p>
+          Commercial-scale CAD concepts, equipment layouts, and process visualization
+          for investor and technical discussions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Process Engineering</h3>
+        <p>
+          PFDs, P&IDs, equipment sizing, and early-stage process development support.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Techno-Economic Analysis</h3>
+        <p>
+          Preliminary cost estimation, Aspen simulation, CAPEX/OPEX modeling,
+          and scale-up analysis.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+
+    <div class="projects-grid">
+      <div class="card">
+        <div class="project-image">
+          <img src="images/project-1.jpg" alt="Commercial plant concept" />
+        </div>
+        <h3>Commercial Plant Concept</h3>
+        <p>Placeholder for a sample CAD visualization or plant layout project.</p>
+      </div>
+
+      <div class="card">
+        <div class="project-image">
+          <img src="images/project-2.jpg" alt="Process simulation study" />
+        </div>
+        <h3>Process Simulation Study</h3>
+        <p>Placeholder for an Aspen model, mass balance, or process development case study.</p>
+      </div>
+
+      <div class="card">
+        <div class="project-image">
+          <img src="images/project-3.jpg" alt="Cost estimation package" />
+        </div>
+        <h3>Cost Estimation Package</h3>
+        <p>Placeholder for a techno-economic analysis or scale-up cost estimate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
 
     <p>
-      Lokhonia Engineering helps startups visualize,
-      model, and evaluate technologies at pilot and
-      commercial scale.
+      Interested in process modeling, CAD visualization, or scale-up support?
     </p>
 
-    <a class="button" href="#contact">
-      Get in Touch
-    </a>
+    <br />
 
-  </div>
+    <p>
+      <a href="mailto:matthew@lokhoniaengineering.com">
+        matthew@lokhoniaengineering.com
+      </a>
+    </p>
+  </section>
 
-</section>
+  <footer>
+    © 2026 Lokhonia Engineering. All rights reserved.
+  </footer>
 
 </body>
 </html>
