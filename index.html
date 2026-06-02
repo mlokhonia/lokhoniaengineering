@@ -9,9 +9,10 @@
     :root {
       --blue: #255083;
       --blue-dark: #1b3b61;
-      --silver: #c7c9cc;
+      --silver: #8f8f91ff;
+      --silver-light: #c7c9cc;
       --dark: #111827;
-      --light: #f7f9fb;
+      --light: #f3f4f6;
       --white: #ffffff;
     }
 
@@ -19,6 +20,10 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    .projects .card p {
+      text-align: justify;
     }
 
     body {
@@ -164,13 +169,15 @@
         0 0 0 1px rgba(255,255,255,0.2);
     }
     section {
-      padding: 70px 8%;
+      padding: 50px 8%;
     }
-
+    
     section h2 {
       font-size: 34px;
       color: var(--blue);
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+      border-left: 6px solid var(--silver);
+      padding-left: 14px;
     }
 
     .about {
@@ -201,15 +208,19 @@
     }
 
     .card {
-      border: 1px solid var(--silver);
+      border: 1px solid var(--silver-light);
+      border-top: 5px solid var(--silver);
       padding: 26px;
       border-radius: 8px;
       background: var(--white);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     }
 
     .card h3 {
       color: var(--blue);
       margin-bottom: 12px;
+      border-bottom: 2px solid var(--silver);
+      padding-bottom: 8px;
     }
 
     .projects {
