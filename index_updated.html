@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lokhonia Engineering</title>
+  <link rel="icon" type="image/png" href="Favicon Image New.png">
+
+  <style>
+    :root {
+      --blue: #255083;
+      --blue-dark: #1b3b61;
+      --silver: #8f8f91ff;
+      --silver-light: #c7c9cc;
+      --dark: #111827;
+      --light: #f3f4f6;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .projects .card p {
+      text-align: justify;
+    }
+
+    body {
+      font-family: Verdana, Geneva, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 130px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+
+    .logo-link {
+      display: inline-block;
+      line-height: 0;
+    }
+
+    .projects-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .projects-header h2 {
+      margin-bottom: 0;
+    }
+
+    .project-toggle {
+      background: var(--blue);
+      color: white;
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .project-toggle:hover {
+      background: var(--blue-dark);
+    }
+
+    .more-projects {
+      display: none;
+      margin-top: 24px;
+    }
+
+    .more-projects.show {
+      display: grid;
+    }
+
+
+    header {
+      background: var(--blue);
+      color: var(--white);
+      padding: 14px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      height: 95px;
+      width: auto;
+      display: block;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .nav-button {
+      background: white !important;
+      color: #255083 !important;
+    
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      display: inline-block;
+      margin-left: 30px;
+      line-height: 1;
+   }
+    
+   .nav-button:hover {
+      background: white !important;
+      color: #255083 !important;
+      opacity: 1;
+  }
+    }
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 650px;
+      padding: 100px 8%;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      background: linear-gradient(
+        rgba(37, 80, 131, 0.92),
+        rgba(27, 59, 97, 0.92)
+      );
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(37, 80, 131, 0.92) 0%,
+        rgba(37, 80, 131, 0.85) 40%,
+        rgba(37, 80, 131, 0.75) 70%,
+        rgba(27, 59, 97, 0.65) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.12;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero p {
+      font-size: 23px;
+      max-width: 700px;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.35);
+    }
+
+    .button {
+      display: inline-block;
+
+      background: white;
+      color: #255083;
+
+      border: 3px solid white;
+
+      padding: 18px 36px;
+
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    
+      border-radius: 8px;
+    
+      box-shadow:
+        0 8px 20px rgba(0,0,0,0.20),
+        0 0 0 1px rgba(255,255,255,0.2);
+
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 12px 28px rgba(0,0,0,0.25),
+        0 0 0 1px rgba(255,255,255,0.2);
+    }
+    section {
+      padding: 50px 8%;
+    }
+    
+    section h2 {
+      font-size: 34px;
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+
+    .impact-section {
+      padding: 25px 8% 35px;
+      text-align: center;
+    }
+    
+    .impact-stat {
+      font-size: 26px;
+      color: #444;
+    }
+    
+    .impact-stat span {
+      display: block;
+      font-size: 64px;
+      font-weight: 800;
+      color: #255083;
+      margin: 10px 0;
+    }
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: 8px;
+      overflow: visible;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .services-grid,
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      border: 1px solid var(--silver-light);
+      padding: 26px;
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    .card h3 {
+      color: var(--blue);
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--silver);
+      padding-bottom: 8px;
+    }
+
+    .projects {
+      background: var(--light);
+    }
+
+    .project-image {
+      background: var(--silver);
+      height: 180px;
+      border-radius: 6px;
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact {
+      background: var(--blue);
+      color: var(--white);
+      text-align: center;
+      padding-bottom: 0;
+    }
+
+    .contact h2 {
+      color: var(--white);
+    }
+
+    .contact a {
+      color: var(--white);
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .contact-form {
+      max-width: 750px;
+      margin: 40px auto 60px;
+      background: white;
+      padding: 35px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-family: Verdana, Geneva, sans-serif;
+      font-size: 15px;
+    }
+    
+    .contact-form textarea {
+      resize: vertical;
+    }
+    
+    .contact-form button {
+      width: 100%;
+      background: #255083;
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .contact-form button:hover {
+      background: #1b3b61;
+    }
+    footer {
+      background: #0f172a;
+      color: white;
+    
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+    
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 18px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 18px;
+        display: inline-block;
+        margin-bottom: 8px;
+      }
+
+      .logo {
+        height: 80px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 80px 8%;
+      }
+
+      .hero-image {
+        width: 100%;
+        opacity: 0.16;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p {
+        font-size: 19px;
+      }
+
+      .about,
+      .services-grid {
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:24px;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <header>
+    <a href="#top" class="logo-link">
+      <img
+        src="White Transparent Logo.png"
+        alt="Lokhonia Engineering Logo"
+        class="logo"
+      />
+    </a>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact" class="nav-button">Get in Touch</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="stock photo.jpg" alt="Industrial process design" />
+    </div>
+
+    <div class="hero-content">
+      <h1>
+        Helping startups scale from lab to commercial deployment
+      </h1>
+
+      <p>
+        Process engineering, techno-economic analysis, process simulation, carbon studies,
+        and plant visualization for emerging industrial technologies
+      </p>
+
+      <a class="button" href="#contact">Get in Touch</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="about">
+      <div>
+        <h2>About</h2>
+        <p>
+          Lokhonia Engineering provides engineering support
+          for startups developing physical technologies. Our focus is on helping
+          early-stage teams understand how their processes may look, perform, and
+          scale beyond the lab.
+        </p>
+      </div>
+
+      <div class="about-image">
+        <img src="Cropped Field Photo.jpg" alt="Engineering project visual" />
+      </div>
+    </div>
+  </section>
+
+  <section class="impact-section">
+    <div class="impact-stat">
+      <span>$8M+</span>
+      <p>Raised by startups supported through our engineering studies and analyses</p>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+
+      <div class="card">
+    <h3>Plant Visualization</h3>
+    <p>
+      Commercial-scale CAD concepts, equipment layouts, and process
+      visualization for investor and technical discussions
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Process Engineering</h3>
+    <p>
+      PFDs, P&IDs, equipment sizing, and early-stage process
+      development support
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Techno-Economic Analysis</h3>
+    <p>
+      Preliminary cost estimation, Aspen simulation,
+      CAPEX/OPEX modeling, and scale-up analysis
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Carbon Studies</h3>
+    <p>
+      Carbon intensity analysis, life-cycle assessment support, and evaluation of
+      decarbonization opportunities
+    </p>
+  </div>
+
+</div>
+  </section>
+
+  <section id="projects" class="projects">
+    <div class="projects-header">
+      <h2>Projects</h2>
+      <button class="project-toggle" id="projectToggle" aria-label="Show more projects">+</button>
+    </div>
+
+    <div class="projects-grid">
+      <div class="card">
+        <div class="project-image">
+          <img src="images/project-1.jpg" alt="Commercial plant concept" />
+        </div>
+        <h3>UC Berkeley Biodiesel Production Study</h3>
+        <p>
+        Developed a commercial-scale biodiesel production model and evaluated its
+        competitiveness against petroleum-derived diesel. Built Aspen Plus process
+        simulations, developed PFDs and P&IDs, and performed sensitivity
+        analyses to identify the primary drivers of project economics and
+        commercial feasibility. Conducted carbon intensity studies to
+        quantify lifecycle CO₂ emissions per gallon of biodiesel and created plant-scale facility layouts
+        using SolidWorks and AutoCAD.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="project-image">
+          <img src="ASPEN model.png" alt="Aspen Process Simulation">
+        </div>
+        <h3>Electrochemical Ethanol Production</h3>
+        <p>
+        Built a process model for electrochemical ethanol
+        production at scale using Aspen Plus, including downstream separation and
+        purification operations. Developed equipment sizing calculations,
+        PFDs, P&IDs, and net present value analyses to evaluate
+        economic performance and scale-up potential. Conducted carbon intensity and sensitivity
+        studies to quantify lifecycle greenhouse gas emissions, identify
+        key emissions drivers, and assess the environmental benefits of
+        electrochemical ethanol production at commercial scale.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="project-image">
+          <img src="Cost Estimation" alt="Cost Estimation Study">
+        </div>
+        <h3>Green Ammonia Techno-Economic Analysis</h3>
+        <p>
+        Created process simulation models for both conventional Haber-Bosch
+        ammonia production and a novel low-carbon alternative. Performed
+        commercial-scale techno-economic analysis to evaluate capital costs,
+        operating costs, and competitiveness at scale. The study was used in
+        investor fundraising efforts and supported $7M+ in seed funding.
+        </p>
+      </div>
+    </div>
+
+    <div class="projects-grid more-projects" id="moreProjects">
+      <div class="card">
+        <div class="project-image">
+          <img src="images/eor-project.jpg" alt="CO2 vs Natural Gas EOR Assessment" />
+        </div>
+
+        <h3>CO₂ vs. Natural Gas EOR Assessment</h3>
+
+        <p>
+          Evaluated CO₂ and natural gas injection strategies for enhanced oil
+          recovery in North Dakota. Assessed technical performance, field
+          development considerations, carbon management implications, and
+          economic tradeoffs to support engineering decision-making.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+
+    <p>
+      Interested in process modeling, CAD visualization, or scale-up support?
+    </p>
+
+    <br />
+
+    <p>
+      <a href="mailto:info@lokhoniaengineering.com">
+        info@lokhoniaengineering.com
+      </a>
+    </p>
+    <br><br>
+
+    <form action="https://formsubmit.co/info@lokhoniaengineering.com" method="POST" class="contact-form">
+    
+    <input type="hidden" name="_subject" value="New Website Inquiry">
+    <input type="hidden" name="_captcha" value="false">
+    
+    <div class="form-row">
+      <input type="text" name="First Name" placeholder="First Name" required>
+      <input type="text" name="Last Name" placeholder="Last Name" required>
+    </div>
+    
+    <input type="text" name="Company" placeholder="Company (Optional)">
+    <input type="tel" name="Phone Number" placeholder="Phone Number (Optional)">
+    <input type="email" name="Email" placeholder="Email Address" required>
+    
+    <textarea name="Project Description" placeholder="Tell us about your project..." rows="6" required></textarea>
+    
+    <button type="submit">Submit Inquiry</button>
+    
+    </form>   
+
+  <footer>
+    © 2026 Lokhonia Engineering. All rights reserved.
+  </footer>
+
+
+<script>
+  const projectToggle = document.getElementById("projectToggle");
+  const moreProjects = document.getElementById("moreProjects");
+
+  if (projectToggle && moreProjects) {
+    projectToggle.addEventListener("click", function () {
+      moreProjects.classList.toggle("show");
+
+      if (moreProjects.classList.contains("show")) {
+        projectToggle.textContent = "−";
+        projectToggle.setAttribute("aria-label", "Hide additional projects");
+      } else {
+        projectToggle.textContent = "+";
+        projectToggle.setAttribute("aria-label", "Show more projects");
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
