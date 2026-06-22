@@ -418,11 +418,12 @@
     .more-projects.show {
       display: flex;
       justify-content: center;
-  }
+    }
 
     .more-projects .card {
-      width: 380px;
-  }
+      width: calc((100% - 60px) / 3);
+      min-width: 350px;
+    }
 
     @media (max-width: 900px) {
       header {
